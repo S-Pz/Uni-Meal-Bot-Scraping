@@ -55,14 +55,15 @@ def obtain_menus(url:str, file_name:str):#file name without extension (pdf)
 ###2.3
 #USAR O RENDER PARA UPAR O BOT, E O CORON JOB AMARRADO A UM WEBHOOK DO GITHUB
 
-def making_csv():
-    t=0
-    while True:
+# def making_csv():
+#     t=0
+#     while True:
         
-        print(t)
-        for i in urls:
-            print(f'Obtaining {i} menu...')
-            #obtain_menus(str(urls[i]), str(i))
+#         print(t)
+#         for i in urls:
+#             print(f'Obtaining {i} menu...')
+#             #obtain_menus(str(urls[i]), str(i))
 
-        time.sleep(1800)
-        t+=1
+#         time.sleep(1800)
+#         t+=1
+obtain_menus(urls['csa_ctan'], 'csa_ctan')
