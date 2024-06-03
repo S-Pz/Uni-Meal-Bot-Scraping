@@ -1,1 +1,25 @@
+name: Download Files Monthly
 
+on:
+  schedule:
+    - cron: '30 9 1 * *'
+
+jobs:
+  run-script:
+    runs-on: ubuntu-lateste
+  
+  steps:
+    -name: Checkout repository
+      uses: actions/checkout@v2
+    
+    -name : Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    
+    -name : Install dependencies
+      run: | 
+        pip install -r requirements.txt
+    
+    -name : Run script
+      run: python ../../src/main.py
