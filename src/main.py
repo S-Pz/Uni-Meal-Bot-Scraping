@@ -53,7 +53,7 @@ def obtain_menus(url:str, file_name:str):#file name without extension (pdf)
 #VER OS ENDPOINTS DA APLICAÇÃO DA BILBLITECA DO BOT
 
 ###2.3
-#USAR O RENDER PARA UPAR O BOT, E O CORON JOB AMARRADO A UM WEBHOOK DO GITHUB
+#USAR O RENDER PARA UPAR O BOT, E O CORON JOB AMARADO A UM WEBHOOK DO GITHUB
 
 # def making_csv():
 #     t=0
