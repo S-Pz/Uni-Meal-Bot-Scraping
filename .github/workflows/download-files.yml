@@ -2,7 +2,7 @@ name: Download Files Monthly
 
 on:
   schedule:
-    - cron: '30 9 1,2,3 * *'
+    - cron: '0 0 1,2,3,4,5 * *'
     
 jobs:
   run-script:
