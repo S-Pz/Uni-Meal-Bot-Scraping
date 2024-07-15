@@ -2,46 +2,20 @@ import pandas as pd
 import numpy as np
 import pdfplumber, re
 
-months:dict = {'janerio': '01',
-            'fevereiro': '02',
-            'março': '03',
-            'abril': '04',
-            'maio': '05',
-            'junho': '06',
-            'julho': '07',
-            'agosto': '08',
-            'setembro': '09',
-            'outubro': '10',
-            'novembro': '11',
-            'dezembro': '12'
-        }
-
-def cap_maker(file_path: str):
-
-    content = read_pdf(file_path)
-    
-    columns = ['DATA',
-            'PRATOPRINCIPAL',
-            'OVOS',
-            'VEGETARIANO',
-            'GUARNICAO',
-            'ARROZ',
-            'FEIJAO',
-            'SALADA1',
-            'SALADA2',
-            'SUCO',
-            'SOBREMESA'
-        ]
-
-    df = pd.DataFrame(content[2:], columns = columns)
-    
-    df = formating_df(df, columns)
-    df = removing_lines(df)
-
-    df = formating_time_column(df)
-    df = formating_data(df, content)
-
-    df.to_csv('../csv/Cap_menu.csv', index = False)
+months:dict = {
+    'janerio': '01',
+    'fevereiro': '02',
+    'março': '03',
+    'abril': '04',
+    'maio': '05',
+    'junho': '06',
+    'julho': '07',
+    'agosto': '08',
+    'setembro': '09',
+    'outubro': '10',
+    'novembro': '11',
+    'dezembro': '12'
+}
 
 def read_pdf(file_path: str)-> list:
     
@@ -108,4 +82,32 @@ def formating_data(df,content:list): #Obtain the month and format the data colum
     
     return df
 
-cap_maker('../Menus/Cap_menu_mai.pdf')
+def cap_maker(pdf_file: str)-> pd.DataFrame:
+
+    content = read_pdf(pdf_file)
+    
+    columns = [
+        'DATA', 
+        'PRATOPRINCIPAL',
+        'OVOS',
+        'VEGETARIANO',
+        'GUARNICAO',
+        'ARROZ',
+        'FEIJAO',
+        'SALADA1',
+        'SALADA2',
+        'SUCO',
+        'SOBREMESA'
+    ]
+
+    df = pd.DataFrame(content[2:], columns = columns)
+    
+    df = formating_df(df, columns)
+    df = removing_lines(df)
+
+    df = formating_time_column(df)
+    df = formating_data(df, content)
+
+    return df
+
+    #df.to_csv('../csv/Cap_menu.csv', index = False)
