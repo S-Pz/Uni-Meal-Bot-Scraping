@@ -67,7 +67,7 @@ TABLES = {
             pratoprincipal TEXT,
             ovos TEXT,
             vegetariano TEXT,
-            guanicao TEXT,
+            guarnicao TEXT,
             salada1 TEXT,
             salada2 TEXT,
             arroz TEXT,
@@ -150,7 +150,7 @@ def insert_data_CTAN(conn: sqlite3.Connection, data:tuple):
     c = conn.cursor()
 
     try:
-        insert="""INSERT INTO CTAN(
+        insert = """INSERT INTO CTAN(
             data,
             horario,
             pratoprincipal,
@@ -173,6 +173,150 @@ def insert_data_CTAN(conn: sqlite3.Connection, data:tuple):
     
     finally:
         c.close()
+
+def insert_data_CSA(conn: sqlite3.Connection, data:tuple):
+    
+    c = conn.cursor()
+
+    try:
+        insert = """INSERT INTO CSA(
+            data,
+            horario,
+            pratoprincipal,
+            ovos,
+            vegetariano,
+            guranicao,
+            arroz,
+            feijao,
+            salada1,
+            salada2,
+            suco,
+            sobremesa
+        )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+
+        c.execute(insert,data)
+        conn.commit()
+    
+    except(sqlite3.OperationalError) as error:
+        print("Error to insert data in CSA table", error)
+    
+    finally:
+        c.close()
+
+def insert_data_CSL(conn: sqlite3.Connection, data:tuple):
+
+    c = conn.cursor()
+
+    try:
+        insert = """INSERT INTO CSL(
+            data,
+            dia,
+            horario,
+            pratoprincipal,
+            ovos,
+            vegetariano,
+            guarnicao,
+            salada1,
+            salada2,
+            arroz,
+            feijao,
+            sobremesa,
+            suco
+        )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+
+        c.execute(insert,data)
+        conn.commit()
+    
+    except(sqlite3.OperationalError) as error:
+        print("Error to insert data in CSL table", error)
+
+    finally:
+        c.close()
+
+def insert_data_CDB(conn: sqlite3.Connection, data:tuple):
+
+    c = conn.cursor()
+
+    try:
+        insert = """INSERT INTO CDB(
+            data,
+            dia,
+            horario,
+            pratoprincipal,
+            ovos,
+            vegetariano,
+            guarnicao,
+            salada1,
+            salada2,
+            arroz,
+            feijao,
+            sobremesa,
+            suco
+        )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+
+        c.execute(insert,data)
+        conn.commit()
+    
+    except(sqlite3.OperationalError) as error:
+        print("Error to insert data in CDB table", error)
+
+    finally:
+        c.close()
+
+def insert_data_CCO(conn: sqlite3.Connection, data:tuple):
+
+    c = conn.cursor()
+
+    try:
+        insert = """INSERT INTO CDB(
+            data,
+            dia,
+            horario,
+            pratoprincipal,
+            ovos,
+            vegetariano,
+            guarnicao,
+            salada1,
+            salada2,
+            arroz,
+            feijao,
+            sobremesa,
+            suco
+        )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+
+        c.execute(insert,data)
+        conn.commit()
+    
+    except(sqlite3.OperationalError) as error:
+        print("Error to insert data in CCO table", error)
+
+    finally:
+        c.close()
+
+def insert_data_CAP(conn:sqlite3.Connection, data:tuple):
+
+    c = conn.cursor()
+
+    try:
+        insert = """INSERT INTO CAP(
+            data,
+            pratoprincipal,
+            ovos,
+            vegetariano,
+            guarnicao,
+            arroz,
+            feijao,
+            salada1,
+            salada2,
+            suco,
+            sobremesa
+        )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+
+        c.execute(insert, data)
+        conn.commit()
+    
+    except(sqlite3.OperationalError) as error:
+        print("Error to insert data in CAP table", error)
 
 if __name__ == '__main__':
 
