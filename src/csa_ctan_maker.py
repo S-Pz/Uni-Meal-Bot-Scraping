@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import pdfplumber, re
 
-def csa_ctan_maker(url: str):
+def csa_ctan_maker(url: str) -> pd.DataFrame:
     
     content = read_pdf(url)
 
@@ -26,9 +26,11 @@ def csa_ctan_maker(url: str):
     df = formating_data(df)
     df = formating_time_column(df)
 
-    df.to_csv('../csv/Ctan-Csa_menu.csv', index = False, encoding = 'utf-8')
+    return df
+    
+    #df.to_csv('../csv/Ctan-Csa_menu.csv', index = False, encoding = 'utf-8')
 
-def read_pdf(url: str)-> list:
+def read_pdf(url: str) -> list:
     
     content:list = []
 
@@ -40,7 +42,7 @@ def read_pdf(url: str)-> list:
     
     return content
 
-def formating_df(df, columns:list):
+def formating_df(df:pd.DataFrame, columns:list)-> pd.DataFrame:
 
     #remove \n
     df[columns] = df[columns].replace(r'\n', '', regex = True)
@@ -59,7 +61,7 @@ def formating_df(df, columns:list):
 
     return df
 
-def formating_data(df):
+def formating_data(df:pd.DataFrame)-> pd.DataFrame:
 
     for index in df.index:
 
@@ -72,7 +74,7 @@ def formating_data(df):
 
     return df
 
-def formating_time_column(df):
+def formating_time_column(df:pd.DataFrame) -> pd.DataFrame:
     
     for index in df.index:
 

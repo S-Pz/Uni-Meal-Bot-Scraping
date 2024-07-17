@@ -1,4 +1,4 @@
-import sqlite3
+import sqlite3,pandas as pd
 
 TABLES = {
 
@@ -59,7 +59,7 @@ TABLES = {
     ),
     'CCO':(
 
-        """CREATE TABLE IF NOT EXISTES CCO(
+        """CREATE TABLE IF NOT EXISTS CCO(
             id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
             data TEXT,
             dia TEXT,
@@ -293,7 +293,7 @@ def insert_data_CCO(conn: sqlite3.Connection, data:tuple):
     finally:
         c.close()
 
-def insert_data_CAP(conn:sqlite3.Connection, data:tuple):
+def insert_data_CAP(conn:sqlite3.Connection, dF:pd.DataFrame):
 
     c = conn.cursor()
 
@@ -312,11 +312,34 @@ def insert_data_CAP(conn:sqlite3.Connection, data:tuple):
             sobremesa
         )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
 
-        c.execute(insert, data)
-        conn.commit()
+        for index in dF.index:
+
+            DATA = dF.loc[index,'DATA']
+            HORARIO = dF.loc[index,'HORARIO']
+            PRATOPRINCIPAL = dF.loc[index, 'PRATOPRINCIPAL']
+            OVOS = dF.loc[index, 'OVOS']
+            VEGETARIANO = dF.loc[index, 'VEGETARIANO']
+            GUARNICAO = dF.loc[index, 'GUARNICAO']
+            ARROZ = dF.loc[index, 'ARROZ']
+            FEIJAO = dF.loc[index, 'FEIJAO']
+            SALADA1 = dF.loc[index, 'SALADA1']
+            SALADA2 = dF.loc[index, 'SALADA2']
+            SUCO = dF.loc[index, 'SUCO']
+            SOBREMESA = dF.loc[index, 'SOBREMESA']
+
+            data:tuple = (DATA, HORARIO, PRATOPRINCIPAL, 
+                        OVOS, VEGETARIANO, GUARNICAO,
+                        ARROZ, FEIJAO, SALADA1,
+                        SALADA2, SUCO, SOBREMESA)    
+            
+            c.execute(insert, data)
+            conn.commit()
     
     except(sqlite3.OperationalError) as error:
         print("Error to insert data in CAP table", error)
+    
+    finally:
+        c.close()
 
 if __name__ == '__main__':
 
