@@ -118,11 +118,8 @@ def create_database():
 
     try:
         conn = sqlite3.connect('menu.db')
-
         return conn
-    
     except(sqlite3.OperationalError) as error:
-
         print(error)
 
 def create_table(conn: sqlite3.Connection):
@@ -134,6 +131,8 @@ def create_table(conn: sqlite3.Connection):
             c.execute(TABLES[i])
         except(sqlite3.OperationalError) as error:
             print(f"Error to create table {i}", error)
+    
+    c.close()
 
 def drop_tables(conn: sqlite3.Connection):
 
@@ -144,8 +143,10 @@ def drop_tables(conn: sqlite3.Connection):
             c.execute(f"DROP TABLE IF EXISTS {i}")
         except(sqlite3.OperationalError) as error:
             print(f"Error to drop table {i}", error)
+    
+    c.close()
 
-def insert_data_CTAN(conn: sqlite3.Connection, data:tuple):
+def insert_data_CTAN(conn: sqlite3.Connection, dF:pd.DataFrame):
 
     c = conn.cursor()
 
@@ -165,8 +166,28 @@ def insert_data_CTAN(conn: sqlite3.Connection, data:tuple):
             sobremesa
         )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
 
-        c.execute(insert,data)
-        conn.commit()
+        for index in dF.index:
+
+            DATA = dF.loc[index,'DATA']
+            HORARIO = dF.loc[index,'HORARIO']
+            PRATOPRINCIPAL = dF.loc[index, 'PRATOPRINCIPAL']
+            OVOS = dF.loc[index, 'OVOS']
+            VEGETARIANO = dF.loc[index, 'VEGETARIANO']
+            GUARNICAO = dF.loc[index, 'GUARNICAO']
+            ARROZ = dF.loc[index, 'ARROZ']
+            FEIJAO = dF.loc[index, 'FEIJAO']
+            SALADA1 = dF.loc[index, 'SALADA1']
+            SALADA2 = dF.loc[index, 'SALADA2']
+            SUCO = dF.loc[index, 'SUCO']
+            SOBREMESA = dF.loc[index, 'SOBREMESA']
+
+            data:tuple = (DATA, HORARIO, PRATOPRINCIPAL, 
+                        OVOS, VEGETARIANO, GUARNICAO,
+                        ARROZ, FEIJAO, SALADA1,
+                        SALADA2, SUCO, SOBREMESA)    
+            
+            c.execute(insert, data)
+            conn.commit()
 
     except(sqlite3.OperationalError) as error:
         print("Error to insert data in CTAN table", error)
@@ -174,7 +195,7 @@ def insert_data_CTAN(conn: sqlite3.Connection, data:tuple):
     finally:
         c.close()
 
-def insert_data_CSA(conn: sqlite3.Connection, data:tuple):
+def insert_data_CSA(conn: sqlite3.Connection, dF:pd.DataFrame):
     
     c = conn.cursor()
 
@@ -194,8 +215,28 @@ def insert_data_CSA(conn: sqlite3.Connection, data:tuple):
             sobremesa
         )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
 
-        c.execute(insert,data)
-        conn.commit()
+        for index in dF.index:
+
+            DATA = dF.loc[index,'DATA']
+            HORARIO = dF.loc[index,'HORARIO']
+            PRATOPRINCIPAL = dF.loc[index, 'PRATOPRINCIPAL']
+            OVOS = dF.loc[index, 'OVOS']
+            VEGETARIANO = dF.loc[index, 'VEGETARIANO']
+            GUARNICAO = dF.loc[index, 'GUARNICAO']
+            ARROZ = dF.loc[index, 'ARROZ']
+            FEIJAO = dF.loc[index, 'FEIJAO']
+            SALADA1 = dF.loc[index, 'SALADA1']
+            SALADA2 = dF.loc[index, 'SALADA2']
+            SUCO = dF.loc[index, 'SUCO']
+            SOBREMESA = dF.loc[index, 'SOBREMESA']
+
+            data:tuple = (DATA, HORARIO, PRATOPRINCIPAL, 
+                        OVOS, VEGETARIANO, GUARNICAO,
+                        ARROZ, FEIJAO, SALADA1,
+                        SALADA2, SUCO, SOBREMESA)    
+            
+            c.execute(insert, data)
+            conn.commit()
     
     except(sqlite3.OperationalError) as error:
         print("Error to insert data in CSA table", error)
@@ -312,28 +353,7 @@ def insert_data_CAP(conn:sqlite3.Connection, dF:pd.DataFrame):
             sobremesa
         )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
 
-        for index in dF.index:
-
-            DATA = dF.loc[index,'DATA']
-            HORARIO = dF.loc[index,'HORARIO']
-            PRATOPRINCIPAL = dF.loc[index, 'PRATOPRINCIPAL']
-            OVOS = dF.loc[index, 'OVOS']
-            VEGETARIANO = dF.loc[index, 'VEGETARIANO']
-            GUARNICAO = dF.loc[index, 'GUARNICAO']
-            ARROZ = dF.loc[index, 'ARROZ']
-            FEIJAO = dF.loc[index, 'FEIJAO']
-            SALADA1 = dF.loc[index, 'SALADA1']
-            SALADA2 = dF.loc[index, 'SALADA2']
-            SUCO = dF.loc[index, 'SUCO']
-            SOBREMESA = dF.loc[index, 'SOBREMESA']
-
-            data:tuple = (DATA, HORARIO, PRATOPRINCIPAL, 
-                        OVOS, VEGETARIANO, GUARNICAO,
-                        ARROZ, FEIJAO, SALADA1,
-                        SALADA2, SUCO, SOBREMESA)    
-            
-            c.execute(insert, data)
-            conn.commit()
+       
     
     except(sqlite3.OperationalError) as error:
         print("Error to insert data in CAP table", error)
