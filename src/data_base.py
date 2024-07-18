@@ -414,21 +414,21 @@ def insert_data_CAP(conn:sqlite3.Connection, dF:pd.DataFrame):
             salada2,
             suco,
             sobremesa
-        )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+        )VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"""
 
         for index in dF.index:
 
-            DATA = dF.loc[index, 'DATA']
-            PRATOPRINCIPAL = dF.loc[index, 'PRATOPRINCIPAL']
-            OVOS = dF.loc[index, 'OVOS']
-            VEGETARIANO = dF.loc[index, 'VEGETARIANO']
-            GUARNICAO = dF.loc[index, 'GUARNICAO']
-            ARROZ = dF.loc[index, 'ARROZ']
-            FEIJAO = dF.loc[index, 'FEIJAO']
-            SALADA1 = dF.loc[index, 'SALADA1']
-            SALADA2 = dF.loc[index, 'SALADA2']
-            SUCO = dF.loc[index, 'SUCO']
-            SOBREMESA = dF.loc[index, 'SOBREMESA']       
+            DATA = str(dF.loc[index, 'DATA'])
+            PRATOPRINCIPAL = str(dF.loc[index, 'PRATOPRINCIPAL'])
+            OVOS = str(dF.loc[index, 'OVOS'])
+            VEGETARIANO = str(dF.loc[index, 'VEGETARIANO'])
+            GUARNICAO = str(dF.loc[index, 'GUARNICAO'])
+            ARROZ = str(dF.loc[index, 'ARROZ'])
+            FEIJAO = str(dF.loc[index, 'FEIJAO'])
+            SALADA1 = str(dF.loc[index, 'SALADA1'])
+            SALADA2 = str(dF.loc[index, 'SALADA2'])
+            SUCO = str(dF.loc[index, 'SUCO'])
+            SOBREMESA = str(dF.loc[index, 'SOBREMESA'])       
 
             data:tuple = (DATA, PRATOPRINCIPAL, OVOS,
                        VEGETARIANO, GUARNICAO, ARROZ,

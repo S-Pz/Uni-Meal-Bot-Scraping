@@ -23,7 +23,9 @@ if __name__ == '__main__':
        if (Return == "error"):
            continue
     
+    
     conn = db.create_database()
-    db.create_table()
-
+    db.create_table(conn)
+    db.insert_data_CAP(conn, cap_maker("../Menus/cap.pdf"))
+    
     conn.close()
