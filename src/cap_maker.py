@@ -3,6 +3,7 @@ import numpy as np
 import pdfplumber, re
 
 months:dict = {
+    
     'janerio': '01',
     'fevereiro': '02',
     'março': '03',
@@ -17,7 +18,7 @@ months:dict = {
     'dezembro': '12'
 }
 
-def read_pdf(file_path: str)-> list:
+def read_pdf(file_path: str) -> list:
     
     content:list = []
 
@@ -29,7 +30,7 @@ def read_pdf(file_path: str)-> list:
     
     return content
 
-def formating_df(df, columns:list):
+def formating_df(df:pd.DataFrame, columns:list) -> pd.DataFrame:
 
     df = df.replace(r'\n', '', regex = True)
     
@@ -43,7 +44,7 @@ def formating_df(df, columns:list):
 
     return df
 
-def removing_lines(df):#remove empty cells
+def removing_lines(df:pd.DataFrame) -> pd.DataFrame:#remove empty cells
 
     for index in df.index:
 
@@ -52,7 +53,7 @@ def removing_lines(df):#remove empty cells
     
     return df
 
-def formating_time_column(df): # Making the column 'HORARIO' and fill with 'ALMOCO' or 'JANTAR'
+def formating_time_column(df:pd.DataFrame) -> pd.DataFrame: # Making the column 'HORARIO' and fill with 'ALMOCO' or 'JANTAR'
   
     for index in df.index:
         data:str = str(df.loc[index, 'DATA'])
@@ -66,7 +67,7 @@ def formating_time_column(df): # Making the column 'HORARIO' and fill with 'ALMO
 
     return df
 
-def formating_data(df,content:list): #Obtain the month and format the data colum
+def formating_data(df:pd.DataFrame, content:list) -> pd.DataFrame: #Obtain the month and format the data colum
     
     mon = content[0][0].split(' ')[7].lower()
     
@@ -82,7 +83,7 @@ def formating_data(df,content:list): #Obtain the month and format the data colum
     
     return df
 
-def cap_maker(pdf_file: str)-> pd.DataFrame:
+def cap_maker(pdf_file: str) -> pd.DataFrame:
 
     content = read_pdf(pdf_file)
     

@@ -2,39 +2,11 @@ import pandas as pd
 import numpy as np
 import pdfplumber, re
 
-def csa_ctan_maker(url: str) -> pd.DataFrame:
-    
-    content = read_pdf(url)
-
-    columns = ['DATA',
-            'HORARIO',
-            'PRATOPRINCIPAL',
-            'OVOS',
-            'VEGETARIANO',
-            'GUARNICAO',
-            'ARROZ',
-            'FEIJAO',
-            'SALADA1',
-            'SALADA2',
-            'SUCO',
-            'SOBREMESA'
-            ]
-
-    df = pd.DataFrame(content[3:], columns = columns)
-
-    df = formating_df(df, columns)
-    df = formating_data(df)
-    df = formating_time_column(df)
-
-    return df
-    
-    #df.to_csv('../csv/Ctan-Csa_menu.csv', index = False, encoding = 'utf-8')
-
-def read_pdf(url: str) -> list:
+def read_pdf(file_path: str) -> list:
     
     content:list = []
 
-    with pdfplumber.open(url) as f:
+    with pdfplumber.open(file_path) as f:
         for i in f.pages:
             table = i.extract_table()
             if table:
@@ -42,7 +14,7 @@ def read_pdf(url: str) -> list:
     
     return content
 
-def formating_df(df:pd.DataFrame, columns:list)-> pd.DataFrame:
+def formating_df(df:pd.DataFrame, columns:list) -> pd.DataFrame:
 
     #remove \n
     df[columns] = df[columns].replace(r'\n', '', regex = True)
@@ -83,4 +55,28 @@ def formating_time_column(df:pd.DataFrame) -> pd.DataFrame:
 
     return df
 
-csa_ctan_maker("../Menus/Ctan_menu_march.pdf")
+def csa_ctan_maker(pdf_file: str) -> pd.DataFrame:
+    
+    content = read_pdf(pdf_file)
+
+    columns = ['DATA',
+            'HORARIO',
+            'PRATOPRINCIPAL',
+            'OVOS',
+            'VEGETARIANO',
+            'GUARNICAO',
+            'ARROZ',
+            'FEIJAO',
+            'SALADA1',
+            'SALADA2',
+            'SUCO',
+            'SOBREMESA'
+            ]
+
+    df = pd.DataFrame(content[3:], columns = columns)
+
+    df = formating_df(df, columns)
+    df = formating_data(df)
+    df = formating_time_column(df)
+
+    return df

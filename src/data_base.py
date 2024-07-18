@@ -1,4 +1,4 @@
-import sqlite3,pandas as pd
+import sqlite3, pandas as pd
 
 TABLES = {
 
@@ -117,7 +117,7 @@ TABLES = {
 def create_database():
 
     try:
-        conn = sqlite3.connect('menu.db')
+        conn = sqlite3.connect('cardapio.db')
         return conn
     except(sqlite3.OperationalError) as error:
         print(error)
@@ -244,7 +244,7 @@ def insert_data_CSA(conn: sqlite3.Connection, dF:pd.DataFrame):
     finally:
         c.close()
 
-def insert_data_CSL(conn: sqlite3.Connection, data:tuple):
+def insert_data_CSL(conn: sqlite3.Connection, dF:pd.DataFrame):
 
     c = conn.cursor()
 
@@ -265,8 +265,29 @@ def insert_data_CSL(conn: sqlite3.Connection, data:tuple):
             suco
         )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
 
-        c.execute(insert,data)
-        conn.commit()
+        for index in dF.index:
+
+            DATA = dF.loc[index, 'DATA']
+            DIA = dF.loc[index, 'DIA']
+            HORARIO = dF.loc[index, 'HORARIO']
+            PRATOPRINCIPAL = dF.loc[index, 'PRATOPRINCIPAL']
+            OVOS = dF.loc[index, 'OVOS']
+            VEGETARIANO = dF.loc[index, 'VEGETARIANO']
+            GUARNICAO = dF.loc[index, 'GUARNICAO']
+            SALADA1 = dF.loc[index, 'SALADA1']
+            SALADA2 = dF.loc[index, 'SALADA2']
+            ARROZ = dF.loc[index, 'ARROZ']
+            FEIJAO = dF.loc[index, 'FEIJAO']
+            SOBREMESA = dF.loc[index, 'SOBREMESA']
+            SUCO = dF.loc[index, 'SUCO']
+
+            data:tuple = (DATA, DIA, HORARIO,
+                        PRATOPRINCIPAL, OVOS, VEGETARIANO,
+                        GUARNICAO, SALADA1, SALADA2,
+                        ARROZ, FEIJAO, SOBREMESA, SUCO)
+            
+            c.execute(insert,data)
+            conn.commit()
     
     except(sqlite3.OperationalError) as error:
         print("Error to insert data in CSL table", error)
@@ -274,7 +295,7 @@ def insert_data_CSL(conn: sqlite3.Connection, data:tuple):
     finally:
         c.close()
 
-def insert_data_CDB(conn: sqlite3.Connection, data:tuple):
+def insert_data_CDB(conn: sqlite3.Connection, dF:pd.DataFrame):
 
     c = conn.cursor()
 
@@ -295,8 +316,29 @@ def insert_data_CDB(conn: sqlite3.Connection, data:tuple):
             suco
         )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
 
-        c.execute(insert,data)
-        conn.commit()
+        for index in dF.index:
+
+            DATA = dF.loc[index, 'DATA']
+            DIA = dF.loc[index, 'DIA']
+            HORARIO = dF.loc[index, 'HORARIO']
+            PRATOPRINCIPAL = dF.loc[index, 'PRATOPRINCIPAL']
+            OVOS = dF.loc[index, 'OVOS']
+            VEGETARIANO = dF.loc[index, 'VEGETARIANO']
+            GUARNICAO = dF.loc[index, 'GUARNICAO']
+            SALADA1 = dF.loc[index, 'SALADA1']
+            SALADA2 = dF.loc[index, 'SALADA2']
+            ARROZ = dF.loc[index, 'ARROZ']
+            FEIJAO = dF.loc[index, 'FEIJAO']
+            SOBREMESA = dF.loc[index, 'SOBREMESA']
+            SUCO = dF.loc[index, 'SUCO']
+
+            data:tuple = (DATA, DIA, HORARIO,
+                        PRATOPRINCIPAL, OVOS, VEGETARIANO,
+                        GUARNICAO, SALADA1, SALADA2,
+                        ARROZ, FEIJAO, SOBREMESA, SUCO)
+            
+            c.execute(insert,data)
+            conn.commit()
     
     except(sqlite3.OperationalError) as error:
         print("Error to insert data in CDB table", error)
@@ -304,7 +346,7 @@ def insert_data_CDB(conn: sqlite3.Connection, data:tuple):
     finally:
         c.close()
 
-def insert_data_CCO(conn: sqlite3.Connection, data:tuple):
+def insert_data_CCO(conn: sqlite3.Connection, dF:pd.DataFrame):
 
     c = conn.cursor()
 
@@ -325,8 +367,29 @@ def insert_data_CCO(conn: sqlite3.Connection, data:tuple):
             suco
         )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
 
-        c.execute(insert,data)
-        conn.commit()
+        for index in dF.index:
+
+            DATA = dF.loc[index, 'DATA']
+            DIA = dF.loc[index, 'DIA']
+            HORARIO = dF.loc[index, 'HORARIO']
+            PRATOPRINCIPAL = dF.loc[index, 'PRATOPRINCIPAL']
+            OVOS = dF.loc[index, 'OVOS']
+            VEGETARIANO = dF.loc[index, 'VEGETARIANO']
+            GUARNICAO = dF.loc[index, 'GUARNICAO']
+            SALADA1 = dF.loc[index, 'SALADA1']
+            SALADA2 = dF.loc[index, 'SALADA2']
+            ARROZ = dF.loc[index, 'ARROZ']
+            FEIJAO = dF.loc[index, 'FEIJAO']
+            SOBREMESA = dF.loc[index, 'SOBREMESA']
+            SUCO = dF.loc[index, 'SUCO']
+
+            data:tuple = (DATA, DIA, HORARIO,
+                        PRATOPRINCIPAL, OVOS, VEGETARIANO,
+                        GUARNICAO, SALADA1, SALADA2,
+                        ARROZ, FEIJAO, SOBREMESA, SUCO)
+            
+            c.execute(insert,data)
+            conn.commit()
     
     except(sqlite3.OperationalError) as error:
         print("Error to insert data in CCO table", error)
@@ -353,17 +416,30 @@ def insert_data_CAP(conn:sqlite3.Connection, dF:pd.DataFrame):
             sobremesa
         )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
 
-       
-    
+        for index in dF.index:
+
+            DATA = dF.loc[index, 'DATA']
+            PRATOPRINCIPAL = dF.loc[index, 'PRATOPRINCIPAL']
+            OVOS = dF.loc[index, 'OVOS']
+            VEGETARIANO = dF.loc[index, 'VEGETARIANO']
+            GUARNICAO = dF.loc[index, 'GUARNICAO']
+            ARROZ = dF.loc[index, 'ARROZ']
+            FEIJAO = dF.loc[index, 'FEIJAO']
+            SALADA1 = dF.loc[index, 'SALADA1']
+            SALADA2 = dF.loc[index, 'SALADA2']
+            SUCO = dF.loc[index, 'SUCO']
+            SOBREMESA = dF.loc[index, 'SOBREMESA']       
+
+            data:tuple = (DATA, PRATOPRINCIPAL, OVOS,
+                       VEGETARIANO, GUARNICAO, ARROZ,
+                       FEIJAO, SALADA1, SALADA2,
+                       SUCO, SOBREMESA)
+            
+            c.execute(insert,data)
+            conn.commit()
+
     except(sqlite3.OperationalError) as error:
         print("Error to insert data in CAP table", error)
     
     finally:
         c.close()
-
-if __name__ == '__main__':
-
-    conn = create_database()
-    create_table(conn)
-    
-    conn.close()

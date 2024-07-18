@@ -1,5 +1,10 @@
 
+import data_base as db
+
 from screpping import obtain_menus
+from cap_maker import cap_maker
+from cdb_cco_csl_maker import cdb_cco_csl_maker
+from csa_ctan_maker import  csa_ctan_maker
 
 urls:dict = {
 
@@ -8,16 +13,17 @@ urls:dict = {
     'cap': 'https://ufsj.edu.br/proae/r-cap.php',
     'cdb': 'http://www.ufsj.edu.br/proae/ru_cdb.php',
     'csl': 'https://ufsj.edu.br/proae/r-csl.php'
-
 }
 
 if __name__ == '__main__':
 
     for i in urls:
-       obtain_menus(urls[i], str(i))
-    # obtain_menus(urls['csa_ctan'], 'csa_ctan')
-    # obtain_menus(urls['cco'], 'cco')
-    # obtain_menus(urls['cap'], 'cap')
-    # obtain_menus(urls['cdb'], 'cdb')
-    # obtain_menus(urls['csl'], 'csl')
+       Return = obtain_menus(urls[i], str(i))
+       
+       if (Return == "error"):
+           continue
+    
+    conn = db.create_database()
+    db.create_table()
 
+    conn.close()
