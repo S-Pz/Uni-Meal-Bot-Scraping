@@ -2,8 +2,8 @@ name: Download Files Monthly
 
 on:
   schedule:
-    - cron: '2 * * * *'
-    
+    - cron: '0 0 1,2,3,4,5 * *'
+
 jobs:
   run-script:
     runs-on: ubuntu-lateste
