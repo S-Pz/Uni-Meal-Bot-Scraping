@@ -1,0 +1,24 @@
+DATA,HORARIO,PRATOPRINCIPAL,OVOS,VEGETARIANO,GUARNICAO,SALADA1,SALADA2,ARROZ,FEIJAO,SOBREMESA,SUCO
+01/07,Almoço,Bife Bovino Acebolado,Fritos/Cozidos,Quibe de bandeja,Angú ao Sugo,Alface Crespa,Beterraba com abacaxi,Simples/Integral,Carioca,Laranja,Melancia
+02/07,Almoço,strogonoff de frango,Fritos/Cozidos,Xadrez de legumes com amendoim,Creme de Milho,Mix de folhas,Pepino C/ Tomate,Simples/Integral,vermelho,Canjica/Melão,Abacaxi
+03/07,Almoço,Bife suino acebolado,Fritos/Cozidos,Bolinho de espinafre c/ quinoa elinhaça,Chuchu refogado,Almeirão,Antepasto de Berinjela,Simples/Integral,Cariocabatido,Banana,Limão
+04/07,Almoço,Lasanha de frango,Fritos/Cozidos,Lasanha de abobrinha,Canjiquinha com Tomate,Acelga,Cenoura C/ Passas,Simples/Integral,Preto,Melancia,Mamão c/Laranja
+05/07,Almoço,Peixe no Fubá,Fritos/Cozidos,Escondinho de lentilha,Legumes Sautee,Mix de folhas,Pepino C/ salsa,Simples/Integral,Carioca,Doce tablete deAmendoim/ Mamão,Laranja
+08/07,Almoço,Frango grelhado,Fritos/Cozidos,Quibe de bandeja,Creme de Milho,Alface Crespa,Cenoura cozida,Simples/Integral,Preto,Laranja,Melão c/hortelã
+09/07,Almoço,Iscas de Fígado,Fritos/Cozidos,Assado de soja,Purê de Batata,Mix de folhas,Tomate,Simples/Integral,Carioca,Maçã,Mamão c/Laranja
+10/07,Almoço,Cubos Bovinos com Pimentão e Cebola,Fritos/Cozidos,Lentilha c/ legumes,Mandioca Cozida,Acelga,Chuchu,Simples/Integral,CariocaBatido,Gelatina de morango/ Salada de frutas,Limão
+11/07,Almoço,Frango Caipira,Fritos/Cozidos,Xadrez de legumes com amendoim,Espaguete ao alho e óleo,Mix de folhas,Berinjela c/ Óregano,Simples/Integral,Tutu defeijão,Pudim de chocolate /Banana,Laranja
+12/07,Almoço,Peixe ao brás,Fritos/Cozidos,Ervilha c/ Batata,Farofa de Abobrinha,Alface Crespa,Beterraba Cozida,Simples/Integral,Carioca,Doceamendoim/laranja,Melancia c/Hortelã
+15/07,Almoço,Strogonoff de Bovino,Fritos/Cozidos,Escondidinho de lentilha,Abobrinha Refogada,Mostarda,Cenoura ralada,Simples/Integral,Preto,Melancia,Laranja
+16/07,Almoço,Iscas Suína acebolada,Fritos/Cozidos,Croquete de feijão branco,Chuchu Tropeiro,Mix de folhas,Beterraba ralada,Simples/Integral,vermelho,BananaCaramelizada/ Maçã,Mamão c/Manga
+17/07,Almoço,Frango Assado,Fritos/Cozidos,Hamburguer de abóbora c/ aveia elinhaça,Canjiquinha com Tomate,Almeirão,Berinjela c/ Óregano,Simples/Integral,Tutu defeijão,Gelatina de cereja/Mamão,Melancia c/Beterraba
+18/07,Almoço,Carne moida c/ batata,Fritos/Cozidos,Grão de bico c/ legumes,Espaguete ao alho e óleo,Alface c/ Mostarda,Abobrinha,Simples/Integral,Carioca,Pudim de chocolate/Melancia,Limão
+19/07,Almoço,Cubos Suíno à Brasé,Fritos/Cozidos,Carne Moida de Soja,Batata Doce Sautê,Acelga,Marroquina,Simples/Integral,Carioca,laranja,Melão c/hortelã
+22/07,Almoço,Carne Moída à Primavera,Fritos/Cozidos,Fricassê de soja,Polenta ao Sugo,Almeirão,Cenoura Ralada,Simples/Integral,Carioca,Doce TableteBanana/ Maçã,Laranja
+23/07,Almoço,Filé de frango Grelhado,Fritos/Cozidos,Almondega de grão de bico aomolho,Macarronada,Acelga,Chuchu,Simples/Integral,Preto,Gelatina de Cereja/Banana,Melancia
+24/07,Almoço,Iscas Bovinas Aceboladas,Fritos/Cozidos,Hamburguer de abóbora c/ aveia elinhaça,Quibebe de Abóbora,Alface c/ Laranja,Berinjela c/ Óregano,Simples/Integral,Tutu defeijão,Arroz Doce/ Maçã,Limão
+25/07,Almoço,Iscas Suína acebolada,Fritos/Cozidos,Croquete de feijão branco,Chuchu Tropeiro,Mix de folhas,Beterraba cozida,Simples/Integral,Carioca,BananaCaramelizada/ Maçã,Mamão c/Manga
+26/07,Almoço,Peixe no Fubá,Fritos/Cozidos,Assado de soja,Legumes Sautee,Almeirão,Abobrinha,Simples/Integral,Vermelho,Laranja,Melão c/hortelã
+29/07,Almoço,Bife Bovino Acebolado,Fritos/Cozidos,Quibe de bandeja,Angú ao Sugo,Alface Crespa,Beterraba com abacaxi,Simples/Integral,Carioca,Laranja,Melancia
+30/07,Almoço,Frango Assado,Fritos/Cozidos,Xadrez de legumes com amendoim,Creme de Milho,Mix de folhas,Pepino C/ Tomate,Simples/Integral,vermelho,Doce deabóbora/Melão,Abacaxi
+31/07,Almoço,Escondidinho de frango,Fritos/Cozidos,Lasanha de abobrinha,Chuchu refogado,Almeirão,Antepasto de Berinjela,Simples/Integral,Cariocabatido,Banana,Limão
