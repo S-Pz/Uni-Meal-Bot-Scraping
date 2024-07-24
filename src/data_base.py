@@ -7,7 +7,6 @@ TABLES = {
         """CREATE TABLE IF NOT EXISTS CTAN(
             id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
             data TEXT,
-            horario TEXT,
             pratoprincipal TEXT,
             ovos TEXT,
             vegetariano TEXT,
@@ -25,7 +24,6 @@ TABLES = {
         """CREATE TABLE IF NOT EXISTS CSA(
             id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
             data TEXT,
-            horario TEXT,
             pratoprincipal TEXT,
             ovos TEXT,
             vegetariano TEXT,
@@ -43,12 +41,11 @@ TABLES = {
         """CREATE TABLE IF NOT EXISTS CDB(
             id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
             data TEXT,
-            dia TEXT,
             horario TEXT,
             pratoprincipal TEXT,
             ovos TEXT,
             vegetariano TEXT,
-            guanicao TEXT,
+            guarnicao TEXT,
             salada1 TEXT,
             salada2 TEXT,
             arroz TEXT,
@@ -62,7 +59,6 @@ TABLES = {
         """CREATE TABLE IF NOT EXISTS CCO(
             id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
             data TEXT,
-            dia TEXT,
             horario TEXT,
             pratoprincipal TEXT,
             ovos TEXT,
@@ -81,12 +77,11 @@ TABLES = {
         """CREATE TABLE IF NOT EXISTS CSL(
             id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
             data TEXT,
-            dia TEXT,
             horario TEXT,
             pratoprincipal TEXT,
             ovos TEXT,
             vegetariano TEXT,
-            guanicao TEXT,
+            guarnicao TEXT,
             salada1 TEXT,
             salada2 TEXT,
             arroz TEXT,
@@ -153,7 +148,6 @@ def insert_data_CTAN(conn: sqlite3.Connection, dF:pd.DataFrame):
     try:
         insert = """INSERT INTO CTAN(
             data,
-            horario,
             pratoprincipal,
             ovos,
             vegetariano,
@@ -164,12 +158,11 @@ def insert_data_CTAN(conn: sqlite3.Connection, dF:pd.DataFrame):
             salada2,
             suco,
             sobremesa
-        )VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"""
+        )VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"""
 
         for index in dF.index:
 
             DATA = dF.loc[index,'DATA']
-            HORARIO = dF.loc[index,'HORARIO']
             PRATOPRINCIPAL = dF.loc[index, 'PRATOPRINCIPAL']
             OVOS = dF.loc[index, 'OVOS']
             VEGETARIANO = dF.loc[index, 'VEGETARIANO']
@@ -181,10 +174,10 @@ def insert_data_CTAN(conn: sqlite3.Connection, dF:pd.DataFrame):
             SUCO = dF.loc[index, 'SUCO']
             SOBREMESA = dF.loc[index, 'SOBREMESA']
 
-            data:tuple = (DATA, HORARIO, PRATOPRINCIPAL, 
-                        OVOS, VEGETARIANO, GUARNICAO,
-                        ARROZ, FEIJAO, SALADA1,
-                        SALADA2, SUCO, SOBREMESA)    
+            data:tuple = (DATA, PRATOPRINCIPAL, OVOS,
+                        VEGETARIANO, GUARNICAO, ARROZ,
+                        FEIJAO, SALADA1, SALADA2,
+                        SUCO, SOBREMESA)     
             
             c.execute(insert, data)
             conn.commit()
@@ -202,23 +195,21 @@ def insert_data_CSA(conn: sqlite3.Connection, dF:pd.DataFrame):
     try:
         insert = """INSERT INTO CSA(
             data,
-            horario,
             pratoprincipal,
             ovos,
             vegetariano,
-            guranicao,
+            guarnicao,
             arroz,
             feijao,
             salada1,
             salada2,
             suco,
             sobremesa
-        )VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"""
+        )VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"""
 
         for index in dF.index:
 
             DATA = dF.loc[index,'DATA']
-            HORARIO = dF.loc[index,'HORARIO']
             PRATOPRINCIPAL = dF.loc[index, 'PRATOPRINCIPAL']
             OVOS = dF.loc[index, 'OVOS']
             VEGETARIANO = dF.loc[index, 'VEGETARIANO']
@@ -230,10 +221,10 @@ def insert_data_CSA(conn: sqlite3.Connection, dF:pd.DataFrame):
             SUCO = dF.loc[index, 'SUCO']
             SOBREMESA = dF.loc[index, 'SOBREMESA']
 
-            data:tuple = (DATA, HORARIO, PRATOPRINCIPAL, 
-                        OVOS, VEGETARIANO, GUARNICAO,
-                        ARROZ, FEIJAO, SALADA1,
-                        SALADA2, SUCO, SOBREMESA)    
+            data:tuple = (DATA, PRATOPRINCIPAL, OVOS,
+                        VEGETARIANO, GUARNICAO, ARROZ,
+                        FEIJAO, SALADA1, SALADA2,
+                        SUCO, SOBREMESA)    
             
             c.execute(insert, data)
             conn.commit()
@@ -251,7 +242,6 @@ def insert_data_CSL(conn: sqlite3.Connection, dF:pd.DataFrame):
     try:
         insert = """INSERT INTO CSL(
             data,
-            dia,
             horario,
             pratoprincipal,
             ovos,
@@ -268,7 +258,6 @@ def insert_data_CSL(conn: sqlite3.Connection, dF:pd.DataFrame):
         for index in dF.index:
 
             DATA = dF.loc[index, 'DATA']
-            DIA = dF.loc[index, 'DIA']
             HORARIO = dF.loc[index, 'HORARIO']
             PRATOPRINCIPAL = dF.loc[index, 'PRATOPRINCIPAL']
             OVOS = dF.loc[index, 'OVOS']
@@ -281,10 +270,10 @@ def insert_data_CSL(conn: sqlite3.Connection, dF:pd.DataFrame):
             SOBREMESA = dF.loc[index, 'SOBREMESA']
             SUCO = dF.loc[index, 'SUCO']
 
-            data:tuple = (DATA, DIA, HORARIO,
-                        PRATOPRINCIPAL, OVOS, VEGETARIANO,
-                        GUARNICAO, SALADA1, SALADA2,
-                        ARROZ, FEIJAO, SOBREMESA, SUCO)
+            data:tuple = (DATA, HORARIO, PRATOPRINCIPAL,
+                        OVOS, VEGETARIANO, GUARNICAO,
+                        SALADA1, SALADA2, ARROZ,
+                        FEIJAO, SOBREMESA, SUCO)
             
             c.execute(insert,data)
             conn.commit()
@@ -302,7 +291,6 @@ def insert_data_CDB(conn: sqlite3.Connection, dF:pd.DataFrame):
     try:
         insert = """INSERT INTO CDB(
             data,
-            dia,
             horario,
             pratoprincipal,
             ovos,
@@ -319,7 +307,6 @@ def insert_data_CDB(conn: sqlite3.Connection, dF:pd.DataFrame):
         for index in dF.index:
 
             DATA = dF.loc[index, 'DATA']
-            DIA = dF.loc[index, 'DIA']
             HORARIO = dF.loc[index, 'HORARIO']
             PRATOPRINCIPAL = dF.loc[index, 'PRATOPRINCIPAL']
             OVOS = dF.loc[index, 'OVOS']
@@ -332,10 +319,10 @@ def insert_data_CDB(conn: sqlite3.Connection, dF:pd.DataFrame):
             SOBREMESA = dF.loc[index, 'SOBREMESA']
             SUCO = dF.loc[index, 'SUCO']
 
-            data:tuple = (DATA, DIA, HORARIO,
-                        PRATOPRINCIPAL, OVOS, VEGETARIANO,
-                        GUARNICAO, SALADA1, SALADA2,
-                        ARROZ, FEIJAO, SOBREMESA, SUCO)
+            data:tuple = (DATA, HORARIO, PRATOPRINCIPAL,
+                        OVOS, VEGETARIANO, GUARNICAO,
+                        SALADA1, SALADA2, ARROZ,
+                        FEIJAO, SOBREMESA, SUCO)
             
             c.execute(insert,data)
             conn.commit()
@@ -353,7 +340,6 @@ def insert_data_CCO(conn: sqlite3.Connection, dF:pd.DataFrame):
     try:
         insert = """INSERT INTO CDB(
             data,
-            dia,
             horario,
             pratoprincipal,
             ovos,
@@ -370,7 +356,6 @@ def insert_data_CCO(conn: sqlite3.Connection, dF:pd.DataFrame):
         for index in dF.index:
 
             DATA = dF.loc[index, 'DATA']
-            DIA = dF.loc[index, 'DIA']
             HORARIO = dF.loc[index, 'HORARIO']
             PRATOPRINCIPAL = dF.loc[index, 'PRATOPRINCIPAL']
             OVOS = dF.loc[index, 'OVOS']
@@ -383,10 +368,10 @@ def insert_data_CCO(conn: sqlite3.Connection, dF:pd.DataFrame):
             SOBREMESA = dF.loc[index, 'SOBREMESA']
             SUCO = dF.loc[index, 'SUCO']
 
-            data:tuple = (DATA, DIA, HORARIO,
-                        PRATOPRINCIPAL, OVOS, VEGETARIANO,
-                        GUARNICAO, SALADA1, SALADA2,
-                        ARROZ, FEIJAO, SOBREMESA, SUCO)
+            data:tuple = (DATA, HORARIO, PRATOPRINCIPAL,
+                        OVOS, VEGETARIANO, GUARNICAO,
+                        SALADA1, SALADA2, ARROZ,
+                        FEIJAO, SOBREMESA, SUCO)
             
             c.execute(insert,data)
             conn.commit()

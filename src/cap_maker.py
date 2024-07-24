@@ -109,6 +109,6 @@ def cap_maker(pdf_file: str) -> pd.DataFrame:
     df = formating_time_column(df)
     df = formating_data(df, content)
 
+    df.to_csv('../csv/cap_menu.csv', index = False)
+    
     return df
-
-    #df.to_csv('../csv/Cap_menu.csv', index = False)

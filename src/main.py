@@ -23,9 +23,16 @@ if __name__ == '__main__':
        if (Return == "error"):
            continue
     
-    
     conn = db.create_database()
+    
+    db.drop_tables(conn)
     db.create_table(conn)
+    
     db.insert_data_CAP(conn, cap_maker("../Menus/cap.pdf"))
+    #db.insert_data_CTAN(conn, csa_ctan_maker("../Menus/csa_ctan.pdf"))
+    #db.insert_data_CSA(conn, csa_ctan_maker("../Menus/csa_ctan.pdf"))
+    db.insert_data_CCO(conn, cdb_cco_csl_maker("../Menus/cco.pdf"))
+    db.insert_data_CDB(conn, cdb_cco_csl_maker("../Menus/cdb.pdf"))
+    db.insert_data_CSL(conn, cdb_cco_csl_maker("../Menus/csl.pdf"))
     
     conn.close()

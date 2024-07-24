@@ -85,7 +85,8 @@ def cdb_cco_csl_maker(pdf_file: str) -> pd.DataFrame:
 
     content = read_pdf(pdf_file)
 
-    columns:list = ['DATA',
+    columns:list = [
+            'DATA',
             'DIA',
             'HORARIO',
             'PRATOPRINCIPAL',
@@ -108,4 +109,8 @@ def cdb_cco_csl_maker(pdf_file: str) -> pd.DataFrame:
     df = formating_data(df)
     df = formating_time_column(df)
 
+    df.to_csv('../csv/csl_menu.csv', index = False)
+
     return df
+
+cdb_cco_csl_maker("../Menus/csl.pdf")

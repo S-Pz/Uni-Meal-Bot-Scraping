@@ -59,8 +59,8 @@ def csa_ctan_maker(pdf_file: str) -> pd.DataFrame:
     
     content = read_pdf(pdf_file)
 
-    columns = ['DATA',
-            'HORARIO',
+    columns = [
+            'DATA',
             'PRATOPRINCIPAL',
             'OVOS',
             'VEGETARIANO',
@@ -79,4 +79,8 @@ def csa_ctan_maker(pdf_file: str) -> pd.DataFrame:
     df = formating_data(df)
     df = formating_time_column(df)
 
+    df.to_csv('../csv/csa_menu.csv', index = False)
+    
     return df
+
+csa_ctan_maker("../Menus/csa_ctan.pdf")
