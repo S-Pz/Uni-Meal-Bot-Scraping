@@ -164,7 +164,7 @@ def insert_data_CTAN(conn: sqlite3.Connection, dF:pd.DataFrame):
             salada2,
             suco,
             sobremesa
-        )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+        )VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"""
 
         for index in dF.index:
 
@@ -213,7 +213,7 @@ def insert_data_CSA(conn: sqlite3.Connection, dF:pd.DataFrame):
             salada2,
             suco,
             sobremesa
-        )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+        )VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"""
 
         for index in dF.index:
 
@@ -263,7 +263,7 @@ def insert_data_CSL(conn: sqlite3.Connection, dF:pd.DataFrame):
             feijao,
             sobremesa,
             suco
-        )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+        )VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"""
 
         for index in dF.index:
 
@@ -314,7 +314,7 @@ def insert_data_CDB(conn: sqlite3.Connection, dF:pd.DataFrame):
             feijao,
             sobremesa,
             suco
-        )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+        )VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"""
 
         for index in dF.index:
 
@@ -365,7 +365,7 @@ def insert_data_CCO(conn: sqlite3.Connection, dF:pd.DataFrame):
             feijao,
             sobremesa,
             suco
-        )VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+        )VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"""
 
         for index in dF.index:
 

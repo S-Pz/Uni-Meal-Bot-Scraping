@@ -4,7 +4,7 @@ import pdfplumber, re
 
 months:dict = {
     
-    'janerio': '01',
+    'janeiro': '01',
     'fevereiro': '02',
     'março': '03',
     'abril': '04',
