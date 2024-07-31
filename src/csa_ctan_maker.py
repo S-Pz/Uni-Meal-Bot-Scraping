@@ -2,6 +2,22 @@ import pandas as pd
 import numpy as np
 import pdfplumber, re
 
+months:dict = {
+    
+    'janeiro': '01',
+    'fevereiro': '02',
+    'março': '03',
+    'abril': '04',
+    'maio': '05',
+    'junho': '06',
+    'julho': '07',
+    'agosto': '08',
+    'setembro': '09',
+    'outubro': '10',
+    'novembro': '11',
+    'dezembro': '12'
+}
+
 def read_pdf(file_path: str) -> list:
     
     content:list = []
@@ -17,7 +33,7 @@ def read_pdf(file_path: str) -> list:
 def formating_df(df:pd.DataFrame, columns:list) -> pd.DataFrame:
 
     #remove \n
-    df[columns] = df[columns].replace(r'\n', '', regex = True)
+    df = df.replace(r'\n', '', regex = True)
     
     #remove empty cells
     df[columns] = df[columns].replace("", np.nan)
@@ -33,16 +49,25 @@ def formating_df(df:pd.DataFrame, columns:list) -> pd.DataFrame:
 
     return df
 
-def formating_data(df:pd.DataFrame)-> pd.DataFrame:
-
+def removing_lines(df:pd.DataFrame, columns:list) -> pd.DataFrame:
+     
     for index in df.index:
 
-        pattern = r'[A-z]|[^\x00-\x7F]'
-        string = df.loc[index, 'DATA']
+
+    return df
+
+def formating_data(df:pd.DataFrame, content:list)-> pd.DataFrame:
+
+    mon = content[0][0].split(' ')[1].lower()
+
+    for index in df.index:
+        #pattern = r'[A-z]|[^\x00-\x7F]'
         
-        if (string != None):
-            teste = re.sub(pattern, '', string)
-            df.loc[index, 'DATA'] = teste
+        if (df.loc[index, 'DATA'] != '' and df.loc[index, 'DATA'] != None):
+            data:str = str(df.loc[index, 'DATA'])
+            df.loc[index, 'DATA'] = re.sub(r'[^0-9]+', '/' + months[mon], data)
+        else:
+            df.loc[index, 'DATA'] = df.loc[index - 1, 'DATA']
 
     return df
 
@@ -55,7 +80,7 @@ def formating_time_column(df:pd.DataFrame) -> pd.DataFrame:
 
     return df
 
-def csa_ctan_maker(pdf_file: str) -> pd.DataFrame:
+def csa_ctan_maker(pdf_file: str):
     
     content = read_pdf(pdf_file)
 
@@ -76,11 +101,12 @@ def csa_ctan_maker(pdf_file: str) -> pd.DataFrame:
     df = pd.DataFrame(content[3:], columns = columns)
 
     df = formating_df(df, columns)
-    df = formating_data(df)
-    df = formating_time_column(df)
+    df = removing_lines(df, columns)
+
+    df = formating_data(df, content)
+    
+    #df = formating_time_column(df)
 
     df.to_csv('../csv/csa_menu.csv', index = False)
     
-    return df
-
 csa_ctan_maker("../Menus/csa_ctan.pdf")

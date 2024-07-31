@@ -106,7 +106,7 @@ def cap_maker(pdf_file: str) -> pd.DataFrame:
     df = formating_df(df, columns)
     df = removing_lines(df)
 
-    df = formating_time_column(df)
+    #df = formating_time_column(df)
     df = formating_data(df, content)
 
     df.to_csv('../csv/cap_menu.csv', index = False)
