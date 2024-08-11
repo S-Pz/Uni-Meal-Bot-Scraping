@@ -51,8 +51,7 @@ def formating_df(df:pd.DataFrame, columns:list) -> pd.DataFrame:
 
 def removing_lines(df:pd.DataFrame, columns:list) -> pd.DataFrame:
      
-    for index in df.index:
-
+    df = df.dropna(subset=['PRATOPRINCIPAL'], how = 'all')
 
     return df
 
@@ -83,30 +82,25 @@ def formating_time_column(df:pd.DataFrame) -> pd.DataFrame:
 def csa_ctan_maker(pdf_file: str):
     
     content = read_pdf(pdf_file)
-
+    
     columns = [
-            'DATA',
-            'PRATOPRINCIPAL',
-            'OVOS',
-            'VEGETARIANO',
-            'GUARNICAO',
-            'ARROZ',
-            'FEIJAO',
-            'SALADA1',
-            'SALADA2',
-            'SUCO',
-            'SOBREMESA'
-            ]
+            'DATA', 'PRATOPRINCIPAL', 'OVOS', 'VEGETARIANO', 'GUARNICAO',
+            'ARROZ', 'FEIJAO', 'SALADA1', 'SALADA2', 'SUCO','SOBREMESA'
+        ]
 
     df = pd.DataFrame(content[3:], columns = columns)
 
     df = formating_df(df, columns)
-    df = removing_lines(df, columns)
-
     df = formating_data(df, content)
+
+    df = removing_lines(df, columns)
+    
+    df.to_csv('../csv/csa_menu.csv', index = False)
+
+
     
     #df = formating_time_column(df)
 
-    df.to_csv('../csv/csa_menu.csv', index = False)
+    #df.to_csv('../csv/csa_menu.csv', index = False)
     
 csa_ctan_maker("../Menus/csa_ctan.pdf")
