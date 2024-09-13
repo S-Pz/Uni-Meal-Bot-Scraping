@@ -86,18 +86,8 @@ def cdb_cco_csl_maker(pdf_file: str) -> pd.DataFrame:
     content = read_pdf(pdf_file)
 
     columns:list = [
-            'DATA',
-            'DIA',
-            'HORARIO',
-            'PRATOPRINCIPAL',
-            'OVOS',
-            'VEGETARIANO',
-            'GUARNICAO',
-            'SALADA1',
-            'SALADA2',
-            'ARROZ',
-            'FEIJAO',
-            'SOBREMESA',
+            'DATA', 'DIA', 'HORARIO', 'PRATOPRINCIPAL', 'OVOS', 'VEGETARIANO',
+            'GUARNICAO', 'SALADA1', 'SALADA2', 'ARROZ', 'FEIJAO', 'SOBREMESA',
             'SUCO'
             ]
     

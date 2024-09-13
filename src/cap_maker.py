@@ -88,17 +88,8 @@ def cap_maker(pdf_file: str) -> pd.DataFrame:
     content = read_pdf(pdf_file)
     
     columns = [
-        'DATA', 
-        'PRATOPRINCIPAL',
-        'OVOS',
-        'VEGETARIANO',
-        'GUARNICAO',
-        'ARROZ',
-        'FEIJAO',
-        'SALADA1',
-        'SALADA2',
-        'SUCO',
-        'SOBREMESA'
+        'DATA', 'PRATOPRINCIPAL', 'OVOS', 'VEGETARIANO', 'GUARNICAO',
+        'ARROZ', 'FEIJAO', 'SALADA1', 'SALADA2', 'SUCO', 'SOBREMESA'
     ]
 
     df = pd.DataFrame(content[2:], columns = columns)
