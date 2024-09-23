@@ -16,7 +16,6 @@ months:dict = {'jan': '01',
             }
 
 
-
 def read_pdf(file_path: str)-> list:
     
     content:list = []
@@ -99,8 +98,9 @@ def cdb_cco_csl_maker(pdf_file: str) -> pd.DataFrame:
     df = formating_data(df)
     df = formating_time_column(df)
 
-    df.to_csv('../csv/csl_menu.csv', index = False)
+    namefile = pdf_file.split("/")
+    name_file_csv = namefile[2].split(".")
+
+    df.to_csv(f'../csv/{name_file_csv[0]}_menu.csv', index = False)
 
     return df
-
-cdb_cco_csl_maker("../Menus/csl.pdf")

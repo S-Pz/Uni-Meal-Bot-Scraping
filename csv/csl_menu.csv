@@ -1,24 +1,29 @@
 DATA,HORARIO,PRATOPRINCIPAL,OVOS,VEGETARIANO,GUARNICAO,SALADA1,SALADA2,ARROZ,FEIJAO,SOBREMESA,SUCO
-01/07,Almoço,Bife Bovino Acebolado,Fritos/Cozidos,Quibe de bandeja,Angú ao Sugo,Alface Crespa,Beterraba com abacaxi,Simples/Integral,Carioca,Laranja,Melancia
-02/07,Almoço,strogonoff de frango,Fritos/Cozidos,Xadrez de legumes com amendoim,Creme de Milho,Mix de folhas,Pepino C/ Tomate,Simples/Integral,vermelho,Canjica/Melão,Abacaxi
-03/07,Almoço,Bife suino acebolado,Fritos/Cozidos,Bolinho de espinafre c/ quinoa elinhaça,Chuchu refogado,Almeirão,Antepasto de Berinjela,Simples/Integral,Cariocabatido,Banana,Limão
-04/07,Almoço,Lasanha de frango,Fritos/Cozidos,Lasanha de abobrinha,Canjiquinha com Tomate,Acelga,Cenoura C/ Passas,Simples/Integral,Preto,Melancia,Mamão c/Laranja
-05/07,Almoço,Peixe no Fubá,Fritos/Cozidos,Escondinho de lentilha,Legumes Sautee,Mix de folhas,Pepino C/ salsa,Simples/Integral,Carioca,Doce tablete deAmendoim/ Mamão,Laranja
-08/07,Almoço,Frango grelhado,Fritos/Cozidos,Quibe de bandeja,Creme de Milho,Alface Crespa,Cenoura cozida,Simples/Integral,Preto,Laranja,Melão c/hortelã
-09/07,Almoço,Iscas de Fígado,Fritos/Cozidos,Assado de soja,Purê de Batata,Mix de folhas,Tomate,Simples/Integral,Carioca,Maçã,Mamão c/Laranja
-10/07,Almoço,Cubos Bovinos com Pimentão e Cebola,Fritos/Cozidos,Lentilha c/ legumes,Mandioca Cozida,Acelga,Chuchu,Simples/Integral,CariocaBatido,Gelatina de morango/ Salada de frutas,Limão
-11/07,Almoço,Frango Caipira,Fritos/Cozidos,Xadrez de legumes com amendoim,Espaguete ao alho e óleo,Mix de folhas,Berinjela c/ Óregano,Simples/Integral,Tutu defeijão,Pudim de chocolate /Banana,Laranja
-12/07,Almoço,Peixe ao brás,Fritos/Cozidos,Ervilha c/ Batata,Farofa de Abobrinha,Alface Crespa,Beterraba Cozida,Simples/Integral,Carioca,Doceamendoim/laranja,Melancia c/Hortelã
-15/07,Almoço,Strogonoff de Bovino,Fritos/Cozidos,Escondidinho de lentilha,Abobrinha Refogada,Mostarda,Cenoura ralada,Simples/Integral,Preto,Melancia,Laranja
-16/07,Almoço,Iscas Suína acebolada,Fritos/Cozidos,Croquete de feijão branco,Chuchu Tropeiro,Mix de folhas,Beterraba ralada,Simples/Integral,vermelho,BananaCaramelizada/ Maçã,Mamão c/Manga
-17/07,Almoço,Frango Assado,Fritos/Cozidos,Hamburguer de abóbora c/ aveia elinhaça,Canjiquinha com Tomate,Almeirão,Berinjela c/ Óregano,Simples/Integral,Tutu defeijão,Gelatina de cereja/Mamão,Melancia c/Beterraba
-18/07,Almoço,Carne moida c/ batata,Fritos/Cozidos,Grão de bico c/ legumes,Espaguete ao alho e óleo,Alface c/ Mostarda,Abobrinha,Simples/Integral,Carioca,Pudim de chocolate/Melancia,Limão
-19/07,Almoço,Cubos Suíno à Brasé,Fritos/Cozidos,Carne Moida de Soja,Batata Doce Sautê,Acelga,Marroquina,Simples/Integral,Carioca,laranja,Melão c/hortelã
-22/07,Almoço,Carne Moída à Primavera,Fritos/Cozidos,Fricassê de soja,Polenta ao Sugo,Almeirão,Cenoura Ralada,Simples/Integral,Carioca,Doce TableteBanana/ Maçã,Laranja
-23/07,Almoço,Filé de frango Grelhado,Fritos/Cozidos,Almondega de grão de bico aomolho,Macarronada,Acelga,Chuchu,Simples/Integral,Preto,Gelatina de Cereja/Banana,Melancia
-24/07,Almoço,Iscas Bovinas Aceboladas,Fritos/Cozidos,Hamburguer de abóbora c/ aveia elinhaça,Quibebe de Abóbora,Alface c/ Laranja,Berinjela c/ Óregano,Simples/Integral,Tutu defeijão,Arroz Doce/ Maçã,Limão
-25/07,Almoço,Iscas Suína acebolada,Fritos/Cozidos,Croquete de feijão branco,Chuchu Tropeiro,Mix de folhas,Beterraba cozida,Simples/Integral,Carioca,BananaCaramelizada/ Maçã,Mamão c/Manga
-26/07,Almoço,Peixe no Fubá,Fritos/Cozidos,Assado de soja,Legumes Sautee,Almeirão,Abobrinha,Simples/Integral,Vermelho,Laranja,Melão c/hortelã
-29/07,Almoço,Bife Bovino Acebolado,Fritos/Cozidos,Quibe de bandeja,Angú ao Sugo,Alface Crespa,Beterraba com abacaxi,Simples/Integral,Carioca,Laranja,Melancia
-30/07,Almoço,Frango Assado,Fritos/Cozidos,Xadrez de legumes com amendoim,Creme de Milho,Mix de folhas,Pepino C/ Tomate,Simples/Integral,vermelho,Doce deabóbora/Melão,Abacaxi
-31/07,Almoço,Escondidinho de frango,Fritos/Cozidos,Lasanha de abobrinha,Chuchu refogado,Almeirão,Antepasto de Berinjela,Simples/Integral,Cariocabatido,Banana,Limão
+01/09,Almoço,domingo,,,,,,,,,
+02/09,Almoço,Cubos Suíno à Brasé,Fritos/Cozidos,Croquete de Quinoa,Quibebe de Abóbora,Almeirão,Cenoura Ralada,Simples/Integral,Carioca,Doce embaladococada/ laranja,Melão c/ hortelã
+03/09,Almoço,Frango assado,Fritos/Cozidos,Hamburguer de abóbora c/aveia e linhaça,Macarronada,Mix de folhas,Marroquina,Simples/Integral,Tutu de feijão,GelatinaMorango/Banana,Laranja c/limão
+04/09,Almoço,Bife de Suíno Acebolado,Fritos/Cozidos,Assado de soja,Repolho Búlgaro,Acelga,Antepasto deberinjela,Simples/Integral,Carioca,Bolo/ Melão,Limão
+05/09,Almoço,Carne moida c/ cenoura,Fritos/Cozidos,Almondega de grão de bico aomolho,Batata Sautê,Mostarda,Tomate,Simples/Integral,Preto,Arroz Doce/ Maçã,Melancia c/ beterraba
+06/09,Almoço,Peixe no Fubá,Fritos/Cozidos,Croquete de lentilha,Pirão de Cenoura,Alface c/ Laranja,Pepino c/ Salsa,Simples/Integral,Vermelho,Banana,Abacaxi
+07/09,Almoço,Feriado,,,,,,,,,
+08/09,Almoço,Recesso,,,,,,,,,
+09/09,Almoço,Filé de Frango Grelhado,Fritos/Cozidos,Quibe de bandeja,Parafuso ao Sugo,Alface,Chuchu,Simples/Integral,Tutu de feijão,Doce paçoca/maçã,Laranja c/ limão
+10/09,Almoço,Fígado Iscas,Fritos/Cozidos,Grão xadrez,Purê de Batata,Mix de folhas,Tomate,Simples/Integral,Carioca,Pudim deChocolate/ Saladade frutas,Melancia c/ Hortelã
+11/09,Almoço,Carne de Panela,Fritos/Cozidos,Lentilha c/ legumes,Mandioca Cozida,Acelga,Berinjela c/ Óregano,Simples/Integral,CariocaBatido,Arroz doce/mamão,Limão
+12/09,Almoço,Lasanha de Frango,Fritos/Cozidos,Croquete de feijão branco,Chuchu refogado,Almeirão,Batata doce,Simples/Integral,Carioca,Doce de Abóbora /maçã,Beterraba c/ Limão
+13/09,Almoço,Feijoada,Fritos/Cozidos,Xadrez de legumes comamendoim,Farofa Dourada,Couve,Cenoura Ralada,Simples/Integral,Preto,Banana,Maracujá
+16/09,Almoço,Cubos Suíno à Brasé,Fritos/Cozidos,Tropeiro de grão de bico,Palha Francesa,Mix de folhas,Ceviche deabobrinha,Simples/Integral,Carioca,Pé deMoleque/Laraja,limão
+17/09,Almoço,Frango assado,Fritos/Cozidos,Croquete de quinoa,Chuchu Tropeiro,Acelga,Tomate,Simples/Integral,Preto,Bolo / Banana,Melancia
+18/09,Almoço,Filé de Frango Grelhado,Fritos/Cozidos,lentilhas com legumes,Quibebe de Abóbora,Alface c/ Laranja,Antepasto deberinjela,Simples/Integral,Tutu de feijão,Arroz Doce/Melancia,Maracujá
+19/09,Almoço,Bife de Panela (Bovino),Fritos/Cozidos,Almondegas de Soja,Pirão de Cenoura,Mostarda,Vinagrete,Simples/Integral,Preto,Canjica/melão,Laranja c/mamão
+20/09,Almoço,Escondidinho de peixe,Fritos/Cozidos,Hamburguer de abóbora c/aveia e linhaça,Farofa Dourada,Almeirão,Chuchu,Simples/Integral,Carioca Batido,Laranja/Banana,Abacaxi
+21/09,Almoço,sabado,,,,,,,,,
+22/09,Almoço,domingo,,,,,,,,,
+23/09,Almoço,Iscas Bovina Acebolada,Fritos/Cozidos,Fricassê de soja,Abobrinha Refogada,Mix de folhas,Cenoura c/ passas,Simples/Integral,Preto,Doce tableteamendoim/Maçã,Limão
+24/09,Almoço,Frango Grelhado,Fritos/Cozidos,Croquete de feijão branco,Chuchu Tropeiro,Acelga,Beterraba Ralada,Simples/Integral,Vermelho,Bananacaramelizada/Laranja,Melancia
+25/09,Almoço,Carne moida c/ Batata,Fritos/Cozidos,Hamburguer de abóbora c/aveia e linhaça,Angú ao Sugo,Almeirão,Berinjela c/Óregano,Simples/Integral,Carioca,Maçã,Abacaxi c/hortelã
+26/09,Almoço,Frango Caipira,Fritos/Cozidos,Grão de bico c/ legumes,Espaguete ao alho eóleo,Alface,Pepino c/ Salsa,Simples/Integral,Tutu de feijão,Pudim chinês/Banana,Melão c/ limão
+27/09,Almoço,Peixe ao Brás,Fritos/Cozidos,Lasanha de abobrinha,Batata Doce Sautê,Mostarda,Tomate,Simples/Integral,Carioca,Melancia/Melão,Mamão c/ laranja
+28/09,Almoço,sabado,,,,,,,,,
+29/09,Almoço,domingo,,,,,,,,,
+30/09,Almoço,Bife Suíno acebolado,Fritos/Cozidos,Assado de soja,Macarronada,Mix de folhas,Abobrinha,Simples/Integral,Preto,Maçã/Laranja,Limão

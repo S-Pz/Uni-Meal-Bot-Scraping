@@ -84,22 +84,22 @@ def formating_time_column(df:pd.DataFrame) -> pd.DataFrame: #Formata a coluna de
         
     return df
 
-def formating_date(df:pd.DataFrame):
+def formating_date(df:pd.DataFrame) -> pd.DataFrame:
     
     for index in df.index:
 
-        pattern = r'[A-z]|[^\x00-\x7F]'
-        string = df.loc[index, 'DATA']
+        pattern:str = r'[A-z]|[^\x00-\x7F]'
+        string:str = df.loc[index, 'DATA']
         
         if (string is not None):
             
             #removing the text and let only date dd/mm
-            only_date = re.sub(pattern, '', string)
+            only_date:str = re.sub(pattern, '', string)
             df.loc[index, 'DATA'] = only_date
 
     return df
 
-def formating_time_column_2(df):
+def formating_time_column_2(df:pd.DataFrame) -> pd.DataFrame:
 
     for index in df.index:
 
@@ -108,9 +108,9 @@ def formating_time_column_2(df):
 
     return df
 
-def csa_ctan_maker(pdf_file: str):
+def csa_ctan_maker(pdf_file: str) -> pd.DataFrame:
     
-    content = read_pdf(pdf_file)
+    content:list = read_pdf(pdf_file)
 
     if (len(content[1]) == 11):
         
@@ -119,7 +119,7 @@ def csa_ctan_maker(pdf_file: str):
             'ARROZ', 'FEIJAO', 'SALADA1', 'SALADA2', 'SUCO','SOBREMESA'
         ]
         
-        df = pd.DataFrame(content[3:], columns = columns)
+        df:pd.DataFrame = pd.DataFrame(content[3:], columns = columns)
         
         df = formating_df(df, columns)
         df = formating_time_column(df)
@@ -134,7 +134,7 @@ def csa_ctan_maker(pdf_file: str):
             'ARROZ', 'FEIJAO', 'SALADA1', 'SALADA2', 'SUCO','SOBREMESA'
         ]
    
-        df = pd.DataFrame(content[3:], columns = columns)
+        df:pd.DataFrame  = pd.DataFrame(content[3:], columns = columns)
         
         df = formating_df(df, columns)
         df = formating_date(df)
@@ -142,13 +142,10 @@ def csa_ctan_maker(pdf_file: str):
         df = formating_time_column_2(df)
         df = removing_lines(df, columns)
 
-    
-    dic_format = df.to_dict('index')
-    
-    #print(dic_format[1])
+    #debug information
+    # dic_format = df.to_dict('index')
+    # print(dic_format[1])
 
-    return dic_format
-
-    #df.to_csv('../csv/csa_menu.csv', index = False)
+    df.to_csv('../csv/csa_menu.csv', index = False)
     
-csa_ctan_maker("../Menus/csa_ctan.pdf")
+    return df
