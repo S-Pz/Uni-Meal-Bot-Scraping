@@ -102,5 +102,6 @@ def cdb_cco_csl_maker(pdf_file: str) -> pd.DataFrame:
     name_file_csv = namefile[2].split(".")
 
     df.to_csv(f'../csv/{name_file_csv[0]}_menu.csv', index = False)
+    #df.to_csv(f'~/Documents/bot_ru/csv/{name_file_csv[0]}_menu.csv', index = False)
 
     return df

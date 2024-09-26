@@ -8,7 +8,8 @@ from csa_ctan_maker import  csa_ctan_maker
 
 urls:dict = {
 
-    'csa_ctan': 'https://ufsj.edu.br/proae/ru-ctan.php',
+    'csa':'https://ufsj.edu.br/proae/ru_csa.php',
+    'ctan': 'https://ufsj.edu.br/proae/ru-ctan.php',
     'cco': 'https://ufsj.edu.br/proae/r-cco.php',
     'cap': 'https://ufsj.edu.br/proae/r-cap.php',
     'cdb': 'http://www.ufsj.edu.br/proae/ru_cdb.php',
@@ -31,12 +32,12 @@ if __name__ == '__main__':
     try:
         db.insert_data_CAP(conn, cap_maker("../Menus/cap.pdf"))
         
-        db.insert_data_CTAN(conn, csa_ctan_maker("../Menus/csa_ctan.pdf"))
-        db.insert_data_CSA(conn, csa_ctan_maker("../Menus/csa_ctan.pdf"))
+        db.insert_data_CSA(conn, csa_ctan_maker("../Menus/csa.pdf"))
+        db.insert_data_CTAN(conn, csa_ctan_maker("../Menus/ctan.pdf"))
         
         db.insert_data_CCO(conn, cdb_cco_csl_maker("../Menus/cco.pdf"))
-        db.insert_data_CDB(conn, cdb_cco_csl_maker("../Menus/cdb.pdf"))
         db.insert_data_CSL(conn, cdb_cco_csl_maker("../Menus/csl.pdf"))
+        db.insert_data_CDB(conn, cdb_cco_csl_maker("../Menus/cdb.pdf"))
     
     except:
         print("Some file don't exist to save")

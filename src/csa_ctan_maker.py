@@ -146,6 +146,10 @@ def csa_ctan_maker(pdf_file: str) -> pd.DataFrame:
     # dic_format = df.to_dict('index')
     # print(dic_format[1])
 
-    df.to_csv('../csv/csa_menu.csv', index = False)
-    
+    namefile = pdf_file.split("/")
+    name_file_csv = namefile[2].split(".")
+
+    df.to_csv(f'../csv/{name_file_csv[0]}_menu.csv', index = False)
+    #df.to_csv(f'~/Documents/bot_ru/csv/{name_file_csv[0]}_menu.csv', index = False)
+
     return df
