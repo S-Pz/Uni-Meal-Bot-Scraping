@@ -127,6 +127,9 @@ def csa_ctan_maker(pdf_file: str) -> pd.DataFrame:
         df = formating_date_without_time(df, content)
         df = removing_lines(df, columns)
 
+        df = df[['DATA', 'HORARIO', 'PRATOPRINCIPAL', 'OVOS', 'VEGETARIANO', 'GUARNICAO',
+            'ARROZ', 'FEIJAO', 'SALADA1', 'SALADA2', 'SUCO','SOBREMESA']]
+    
     elif(len(content[1]) == 12):
 
         columns = [

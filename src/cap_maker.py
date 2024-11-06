@@ -100,6 +100,10 @@ def cap_maker(pdf_file: str) -> pd.DataFrame:
     df = formating_time_column(df)
     df = formating_data(df, content)
 
+    #putting the columuns in a specifc order to visualizate
+    df = df[['DATA', 'HORARIO', 'PRATOPRINCIPAL', 'OVOS', 'VEGETARIANO', 'GUARNICAO',
+            'ARROZ', 'FEIJAO', 'SALADA1', 'SALADA2', 'SUCO','SOBREMESA']]
+    
     df.to_csv('../csv/cap_menu.csv', index = False)
     #df.to_csv('~/Documents/bot_ru/csv/cap_menu.csv', index = False)
     
