@@ -43,12 +43,12 @@ def removing_lines(df:pd.DataFrame) -> pd.DataFrame:#remove empty cells
 
     for index in df.index:
 
-        if (df.loc[index, 'PRATOPRINCIPAL'] == None or df.loc[index, 'PRATOPRINCIPAL'] == ''):
+        if (df.loc[index, 'PRATOPRINCIPAL'] == None or df.loc[index, 'PRATOPRINCIPAL'] == '' or df.loc[index, 'ARROZ'] == None):
             df = df.drop(index)
     
     return df
 
-def formating_data(df:pd.DataFrame) -> pd.DataFrame:#Obtain the month and format the data colum
+def format_dates(df:pd.DataFrame) -> pd.DataFrame:#Obtain the month and format the data colum
 
     for index in df.index:
 
@@ -68,7 +68,7 @@ def formating_data(df:pd.DataFrame) -> pd.DataFrame:#Obtain the month and format
     
     return df
 
-def formating_time_column(df:pd.DataFrame) -> pd.DataFrame:
+def fill_missing_date(df:pd.DataFrame) -> pd.DataFrame:
 
     for index in df.index:
 
@@ -80,24 +80,54 @@ def formating_time_column(df:pd.DataFrame) -> pd.DataFrame:
     
     return df
 
+def adding_schedule(df:pd.DataFrame) -> pd.DataFrame:
+    
+    for index in df.index:
+        if(index%2 == 0):
+            df.loc[index,'HORARIO'] = 'Almoço'
+        else:
+            df.loc[index,'HORARIO'] = 'Jantar'
+        
+    return df
+
 def cdb_cco_csl_maker(pdf_file: str) -> pd.DataFrame:
 
-    content = read_pdf(pdf_file)
+    content:list = read_pdf(pdf_file)
 
-    columns:list = [
-            'DATA', 'DIA', 'HORARIO', 'PRATOPRINCIPAL', 'OVOS', 'VEGETARIANO',
-            'GUARNICAO', 'SALADA1', 'SALADA2', 'ARROZ', 'FEIJAO', 'SOBREMESA',
-            'SUCO'
-            ]
+    if(len(content[1]) == 13):
+
+        columns:list = [
+                'DATA', 'DIA', 'HORARIO', 'PRATOPRINCIPAL', 'OVOS', 'VEGETARIANO',
+                'GUARNICAO', 'SALADA1', 'SALADA2', 'ARROZ', 'FEIJAO', 'SOBREMESA',
+                'SUCO'
+                ]
     
-    df = pd.DataFrame(content[2:], columns = columns)
+        df = pd.DataFrame(content[2:], columns = columns)
 
-    df = formating_df(df, columns)
-    df = removing_lines(df)
+        df = formating_df(df, columns)
+        df = removing_lines(df)
 
-    df = formating_data(df)
-    df = formating_time_column(df)
+        df = format_dates(df)
+        df = fill_missing_date(df)
 
+    
+    elif(len(content[1])== 12):
+        
+        columns = [
+            'DATA', 'DIA', 'PRATOPRINCIPAL', 'OVOS', 'VEGETARIANO', 'GUARNICAO',
+            'ARROZ', 'FEIJAO', 'SALADA1', 'SALADA2', 'SUCO','SOBREMESA'
+        ]
+
+        df = pd.DataFrame(content[2:], columns = columns)
+        df = formating_df(df, columns)
+        
+        df = removing_lines(df) #remove empty cells
+        df = format_dates(df) #format the date column
+        
+        
+        df = adding_schedule(df) #add the schedule column
+        df = fill_missing_date(df) #fill the missing date
+    
     namefile = pdf_file.split("/")
     name_file_csv = namefile[2].split(".")
 
