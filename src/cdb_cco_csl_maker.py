@@ -110,6 +110,9 @@ def cdb_cco_csl_maker(pdf_file: str) -> pd.DataFrame:
         df = format_dates(df)
         df = fill_missing_date(df)
 
+        df = df[['DATA','HORARIO','PRATOPRINCIPAL',
+                 'OVOS','VEGETARIANO','GUARNICAO','SALADAS',
+                 'ARROZ','FEIJAO','SOBREMESA','SUCO']]
     
     elif(len(content[1])== 12):
         
@@ -124,9 +127,13 @@ def cdb_cco_csl_maker(pdf_file: str) -> pd.DataFrame:
         df = removing_lines(df) #remove empty cells
         df = format_dates(df) #format the date column
         
-        
         df = adding_schedule(df) #add the schedule column
         df = fill_missing_date(df) #fill the missing date
+
+        df = df[['DATA','HORARIO','PRATOPRINCIPAL',
+                 'OVOS','VEGETARIANO','GUARNICAO','SALADAS',
+                 'ARROZ','FEIJAO','SOBREMESA','SUCO']]
+    
     
     namefile = pdf_file.split("/")
     name_file_csv = namefile[2].split(".")
