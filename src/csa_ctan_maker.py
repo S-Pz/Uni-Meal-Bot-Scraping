@@ -91,10 +91,10 @@ def formating_date(df:pd.DataFrame) -> pd.DataFrame:
         pattern:str = r'[A-z]|[^\x00-\x7F]'
         string:str = df.loc[index, 'DATA']
         
-        if (string is not None):
-            
+        if pd.notna(string):
             #removing the text and let only date dd/mm
-            only_date:str = re.sub(pattern, '', string)
+            only_date:str = re.sub(pattern,'', string)
+            
             df.loc[index, 'DATA'] = only_date
 
     return df
@@ -102,7 +102,6 @@ def formating_date(df:pd.DataFrame) -> pd.DataFrame:
 def formating_time_column_2(df:pd.DataFrame) -> pd.DataFrame:
 
     for index in df.index:
-
         if (df.loc[index, 'DATA'] == '' or df.loc[index, 'DATA'] == None):
             df.loc[index, 'DATA'] = df.loc[index - 1, 'DATA']
 
@@ -119,7 +118,10 @@ def csa_ctan_maker(pdf_file: str) -> pd.DataFrame:
             'ARROZ', 'FEIJAO', 'SALADA1', 'SALADA2', 'SUCO','SOBREMESA'
         ]
         
-        df:pd.DataFrame = pd.DataFrame(content[3:], columns = columns)
+        try:
+            df:pd.DataFrame = pd.DataFrame(content[3:], columns = columns)
+        except:
+            df:pd.DataFrame  = pd.DataFrame(content[2:], columns = columns)
         
         df = formating_df(df, columns)
         df = formating_time_column(df)
@@ -136,10 +138,14 @@ def csa_ctan_maker(pdf_file: str) -> pd.DataFrame:
             'DATA', 'HORARIO', 'PRATOPRINCIPAL', 'OVOS', 'VEGETARIANO', 'GUARNICAO',
             'ARROZ', 'FEIJAO', 'SALADA1', 'SALADA2', 'SUCO','SOBREMESA'
         ]
-   
-        df:pd.DataFrame  = pd.DataFrame(content[3:], columns = columns)
+
+        try:
+            df:pd.DataFrame = pd.DataFrame(content[3:], columns = columns)
+        except:
+            df:pd.DataFrame  = pd.DataFrame(content[2:], columns = columns)
         
         df = formating_df(df, columns)
+        
         df = formating_date(df)
 
         df = formating_time_column_2(df)
@@ -151,8 +157,8 @@ def csa_ctan_maker(pdf_file: str) -> pd.DataFrame:
 
     namefile = pdf_file.split("/")
     name_file_csv = namefile[2].split(".")
-
     df.to_csv(f'../csv/{name_file_csv[0]}_menu.csv', index = False)
+
     #df.to_csv(f'~/Documents/bot_ru/csv/{name_file_csv[0]}_menu.csv', index = False)
 
     return df
