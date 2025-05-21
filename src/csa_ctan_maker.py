@@ -120,17 +120,25 @@ def csa_ctan_maker(pdf_file: str) -> pd.DataFrame:
         
         try:
             df:pd.DataFrame = pd.DataFrame(content[3:], columns = columns)
+
+            df = formating_df(df, columns)
+            df = formating_time_column(df)
+
+            df = formating_date_without_time(df, content)
+            df = removing_lines(df, columns)
+
         except:
             df:pd.DataFrame  = pd.DataFrame(content[2:], columns = columns)
         
-        df = formating_df(df, columns)
-        df = formating_time_column(df)
+            df = formating_df(df, columns)
+            df = formating_time_column(df)
 
-        df = formating_date_without_time(df, content)
-        df = removing_lines(df, columns)
+            df = formating_date_without_time(df, content)
+            df = removing_lines(df, columns)
 
-        df = df[['DATA', 'HORARIO', 'PRATOPRINCIPAL', 'OVOS', 'VEGETARIANO', 'GUARNICAO',
-            'ARROZ', 'FEIJAO', 'SALADA1', 'SALADA2', 'SUCO','SOBREMESA']]
+        finally:
+            df = df[['DATA', 'HORARIO', 'PRATOPRINCIPAL', 'OVOS', 'VEGETARIANO', 'GUARNICAO',
+                'ARROZ', 'FEIJAO', 'SALADA1', 'SALADA2', 'SUCO','SOBREMESA']]
     
     elif(len(content[1]) == 12):
 
@@ -141,15 +149,23 @@ def csa_ctan_maker(pdf_file: str) -> pd.DataFrame:
 
         try:
             df:pd.DataFrame = pd.DataFrame(content[3:], columns = columns)
+
+            df = formating_df(df, columns)
+        
+            df = formating_date(df)
+
+            df = formating_time_column_2(df)
+            df = removing_lines(df, columns)
+
         except:
             df:pd.DataFrame  = pd.DataFrame(content[2:], columns = columns)
-        
-        df = formating_df(df, columns)
-        
-        df = formating_date(df)
+            
+            df = formating_df(df, columns)
+            
+            df = formating_date(df)
 
-        df = formating_time_column_2(df)
-        df = removing_lines(df, columns)
+            df = formating_time_column_2(df)
+            df = removing_lines(df, columns)
 
     #debug information
     # dic_format = df.to_dict('index')
@@ -160,5 +176,5 @@ def csa_ctan_maker(pdf_file: str) -> pd.DataFrame:
     df.to_csv(f'../csv/{name_file_csv[0]}_menu.csv', index = False)
 
     #df.to_csv(f'~/Documents/bot_ru/csv/{name_file_csv[0]}_menu.csv', index = False)
-
+           
     return df

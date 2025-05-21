@@ -98,8 +98,7 @@ def cdb_cco_csl_maker(pdf_file: str) -> pd.DataFrame:
         columns:list = [
                 'DATA', 'DIA', 'HORARIO', 'PRATOPRINCIPAL', 'OVOS', 'VEGETARIANO',
                 'GUARNICAO', 'SALADA1', 'SALADA2', 'ARROZ', 'FEIJAO', 'SOBREMESA',
-                'SUCO'
-                ]
+                'SUCO']
     
         df = pd.DataFrame(content[2:], columns = columns)
 
@@ -110,8 +109,8 @@ def cdb_cco_csl_maker(pdf_file: str) -> pd.DataFrame:
         df = fill_missing_date(df)
 
         df = df[['DATA','HORARIO','PRATOPRINCIPAL',
-                 'OVOS','VEGETARIANO','GUARNICAO','SALADAS',
-                 'ARROZ','FEIJAO','SOBREMESA','SUCO']]
+                 'OVOS','VEGETARIANO','GUARNICAO','SALADA1',
+                 'SALADA2','ARROZ','FEIJAO','SOBREMESA','SUCO']]
     
     elif(len(content[1])== 12):
         
@@ -141,3 +140,4 @@ def cdb_cco_csl_maker(pdf_file: str) -> pd.DataFrame:
     #df.to_csv(f'~/Documents/bot_ru/csv/{name_file_csv[0]}_menu.csv', index = False)
 
     return df
+cdb_cco_csl_maker("../Menus/csl.pdf")
